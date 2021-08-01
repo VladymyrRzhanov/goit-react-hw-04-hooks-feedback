@@ -10,6 +10,8 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const feedbackType = { good, neutral, bad };
+
   const addFeedback = ({ target: { name } }) => {
     switch (name) {
       case 'good':
@@ -38,7 +40,7 @@ const App = () => {
       <Section>
         <h1 className={s.mainTitle}>Please leave feedback</h1>
         <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
+          options={Object.keys(feedbackType)}
           onLeaveFeedback={addFeedback}
         />
       </Section>
